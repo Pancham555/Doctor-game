@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading Animation</title>
+    <style>
+        body {
+            margin: 0px;
+            padding: 0px;
+            display: flex;
+            justify-content: center;
+            /* background: url(HospitalBackground.jpg); */
+            background-color: rgba(2, 2, 2, 0.842);
+        }
+
+        #load {
+            width: 800px;
+            height: 15px;
+            margin-top: 20rem;
+            border: 3px solid green;
+            border-radius: 5px;
+        }
+
+        #loading {
+            height: 100%;
+            width: 10%;
+            background-color: green;
+            animation-name: loading;
+            animation-duration: 3s;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes loading {
+            0% {
+                width: 0%;
+            }
+
+            100% {
+                width: 100%;
+            }
+        }
+
+        #landing-page {
+            /* display: grid; */
+            display: none;
+            grid-template-rows: repeat(3);
+            margin-top: 5rem;
+        }
+
+        .btn {
+            border: 5px solid rgb(247, 0, 255);
+            border-radius: 1rem;
+            color: rgb(247, 0, 255);
+            background: transparent;
+            padding: 20px 50px;
+            font-size: 3rem;
+            display: inline-block;
+            width: 300px;
+            margin: 1rem auto 1rem auto;
+            text-align: center;
+            transition: 0.4s;
+            font-style: initial;
+        }
+
+        .btn:hover {
+            color: white;
+            background-color: rgb(247, 0, 255);
+            cursor: pointer;
+        }
+
+#instruct{
+    color:wheat;
+    margin: 6rem 1rem 1rem 2rem;
+    font-size: 2rem;
+    font-style: italic;
+    display: none;
+
+}
+.btn:last-child{
+    display: block;
+    margin: 4rem auto 2rem auto;
+}
+
+
+    </style>
+</head>
+
+<body>
+    <div id="load">
+        <div id="loading"></div>
+    </div>
+
+    <div id="landing-page">
+        <div class="btn" id="start">Start</div>
+        <!-- <div class="btn" id="story">Story</div> -->
+        <div class="btn" id="instructions">How to play</div>
+    </div>
+
+<div id="instruct">
+    <div class="text">
+        Use keyboard Right key to move the doctor right and Left key to move the doctor left and press space
+        to inject syringe to patient. <br>
+        Remember,if any patient move off the screen the game will be over. <br>
+        Then press on OK in the dialog/alert box appears to replay. <br>
+    </div>
+<div class="btn" id="back">Back</div>
+</div>
+    <script>
+        let loader=document.querySelector("#load")
+        let load = document.querySelector("#loading")
+
+        //To go to play the game
+
+        setInterval(() => {
+            let loading=parseInt(window.getComputedStyle(load,null).getPropertyValue("width"))
+            if (loading==799) {
+                document.querySelector("#landing-page").style.display="grid"
+                loader.style.display="none"
+            }
+        }, 10);
+
+        let start = document.querySelector("#start")
+        start.addEventListener("click", function () {
+            window.location.replace("Corona-game.html")
+        })
+
+        //To go to instruvtion page
+      let instruct=document.querySelector("#instructions")
+      let h_t_p=document.querySelector("#instruct")
+      instruct.addEventListener("click",function () {
+          h_t_p.style.display="inline-block"
+          document.querySelector("#landing-page").style.display="none"
+      })
+
+      //To move back to main menu
+     let back=document.querySelector("#back")
+     back.addEventListener("click",function () {
+        h_t_p.style.display="none"
+        document.querySelector("#landing-page").style.display="grid"
+     })
+
+    </script>
+</body>
+
+</html>

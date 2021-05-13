@@ -1,0 +1,72 @@
+body{
+    margin: 0px;
+    padding:0px;
+    background: url(HospitalBackground.jpg);
+    background-repeat: no-repeat;
+    background-size: 100vmax 100vmin;
+    position: relative;
+    overflow: hidden;
+}
+
+#secDoc{
+    position: relative;
+    /* overflow: hidden; */
+}
+#doc{
+    position: absolute;
+    top:275px;
+    left:120px;
+    /* transform: skewX(-35deg); */
+    z-index: 2; 
+}
+#player{
+    transform: scaleX(-1) ;
+    width:300px;
+    height:300px;
+    /* z-index: -2;  */
+ 
+}
+#syringe{
+    position: absolute;
+    top:70px;
+    left:240px;
+    /* left:300px;
+    top:100px; */
+    /* left:200px; */
+    width:100px;
+    height:100px;
+    transform: rotate(80deg);
+    z-index: 3; 
+}
+#doc,#syringe,#player{
+    transition: 0.1s;
+}
+#patient{
+    transform: scaleX(-1) ;
+    position: absolute;
+    top:320px;
+    left:78vw;
+    width:300px;
+    height:250px;
+    animation-name: patient;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    /* animation-delay: 1s; */
+    z-index: -1;
+}
+@keyframes patient {
+    from{
+        left:78vw;
+    }
+    to{
+        left:-25vw;
+    }
+}
+#score{
+    position: absolute;
+    top:0px;
+    right:0px;
+    margin: 2rem;
+    color: rgb(77, 77, 77);
+    font-size: 2rem;
+}
