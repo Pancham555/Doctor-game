@@ -3,5 +3,7 @@ This is a simple doctor game.
 
 Open the GameFrame file to play.
 
-note:This game in compatible in PC only.
+Note:This game in compatible in PC only.
+
+Note:Please download all the files so as to work all of them properly.
 
